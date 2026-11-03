@@ -24,10 +24,10 @@
         <a href="services.html" class="navbar__link">Services</a>
         <a href="pricing.html" class="navbar__link">Pricing</a>
         <a href="about.html" class="navbar__link active">About</a>
-        <a href="contact.html" class="navbar__link">Contact</a>
+        <a href="contact.html" class="navbar__link">Book Pickup</a>
       </div>
       <div class="navbar__actions">
-        <a href="pricing.html" class="btn btn--primary navbar__cta" style="display:inline-flex;">Book a Pickup</a>
+        <a href="contact.html" class="btn btn--primary navbar__cta" style="display:inline-flex;">Book a Pickup</a>
         <button class="navbar__toggle" id="navToggle" aria-label="Toggle menu">
           <span></span><span></span><span></span>
         </button>
@@ -39,9 +39,9 @@
         <a href="services.html" class="navbar__mobile-link">Services</a>
         <a href="pricing.html" class="navbar__mobile-link">Pricing</a>
         <a href="about.html" class="navbar__mobile-link">About</a>
-        <a href="contact.html" class="navbar__mobile-link">Contact</a>
+        <a href="contact.html" class="navbar__mobile-link">Book Pickup</a>
       </div>
-      <a href="pricing.html" class="btn btn--primary btn--lg">Book a Pickup</a>
+      <a href="contact.html" class="btn btn--primary btn--lg">Book a Pickup</a>
     </div>
   </nav>
 
@@ -79,7 +79,7 @@
             WashReady was born from that frustration. We built a laundry service that works the way it should — you schedule, we pick up, we clean, we deliver. Simple. No downloading apps, no complicated interfaces, no wondering where your order is.
           </p>
           <p style="line-height: 1.75;">
-            Today, we serve over 10,000 happy customers, process thousands of garments every week, and maintain a 4.9-star rating. And we're just getting started.
+            Today, we process hundreds of garments every week and keep growing — because once people try WashReady, they don't go back.
           </p>
         </div>
       </div>
@@ -215,59 +215,48 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-section__inner reveal">
-        <h2>Want to be part of the story?</h2>
-        <p>We're always looking for great people. If you care about quality and doing things right, let's talk.</p>
-        <a href="contact.html" class="btn btn--white btn--lg">Get in Touch</a>
-      </div>
-    </div>
-  </section>
-
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <div class="footer__top">
+      <div class="footer__top" style="grid-template-columns: 2fr 1fr 1fr;">
         <div class="footer__brand">
           <a href="index.html" class="navbar__logo"><span class="navbar__logo-icon">🧺</span> WashReady</a>
-          <p>Premium laundry services with doorstep pickup and delivery. Fresh clothes, zero effort.</p>
+          <p>Professional laundry services across Chandigarh, Mohali & Panchkula. Doorstep pickup, clean clothes, zero effort.</p>
+          <p style="margin-top: 0.75rem; font-size: 0.9rem; color: #fff;">
+            📱 WhatsApp / Call: <a href="https://wa.me/917355892555" style="color: #25D366; font-weight: 600;">+91 73558 92555</a>
+          </p>
         </div>
         <div>
           <h4 class="footer__col-title">Services</h4>
           <div class="footer__links">
-            <a href="services.html" class="footer__link">Washing</a>
-            <a href="services.html" class="footer__link">Deep Cleaning</a>
-            <a href="services.html" class="footer__link">Drying</a>
-            <a href="services.html" class="footer__link">Ironing</a>
+            <a href="services.html" class="footer__link">Wash, Dry & Fold</a>
+            <a href="services.html" class="footer__link">Wash, Dry & Iron</a>
+            <a href="services.html" class="footer__link">Iron & Finish</a>
+            <a href="pricing.html" class="footer__link">Pricing Plans</a>
           </div>
         </div>
         <div>
-          <h4 class="footer__col-title">Company</h4>
+          <h4 class="footer__col-title">Quick Links</h4>
           <div class="footer__links">
             <a href="about.html" class="footer__link">About Us</a>
-            <a href="contact.html" class="footer__link">Contact</a>
+            <a href="contact.html" class="footer__link">Book Pickup</a>
             <a href="pricing.html" class="footer__link">Pricing</a>
-          </div>
-        </div>
-        <div>
-          <h4 class="footer__col-title">Stay Updated</h4>
-          <p style="font-size:0.875rem;color:var(--color-text-on-dark-secondary);margin-bottom:1rem;line-height:1.6;">Tips, offers, and updates.</p>
-          <div class="footer__newsletter">
-            <form class="footer__newsletter-form" onsubmit="event.preventDefault();this.reset();alert('Thanks!');">
-              <input type="email" class="footer__newsletter-input" placeholder="you@email.com" required aria-label="Email">
-              <button type="submit" class="btn btn--primary btn--sm">Join</button>
-            </form>
+            <a href="https://wa.me/917355892555" target="_blank" rel="noopener" class="footer__link">WhatsApp Us</a>
           </div>
         </div>
       </div>
       <div class="footer__bottom">
         <span>© 2026 WashReady. All rights reserved.</span>
-        <span>Made with care, for your clothes.</span>
+        <span>Serving Chandigarh, Mohali & Panchkula.</span>
       </div>
     </div>
   </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/917355892555?text=Hi%20WashReady!%20I%20have%20a%20question%20about%20your%20laundry%20service." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span>Chat with us</span>
+  </a>
 
   <button class="back-to-top" id="backToTop" aria-label="Back to top">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>

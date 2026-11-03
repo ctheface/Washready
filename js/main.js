@@ -206,22 +206,62 @@
   });
 
   // ─── PRICE CALCULATOR (for pricing page) ───
+  let currentDelivery = 'normal';
+
+  // Expose delivery toggle globally for onclick
+  window.setDelivery = function(type) {
+    currentDelivery = type;
+    const normalBtn = document.getElementById('deliveryNormal');
+    const expressBtn = document.getElementById('deliveryExpress');
+    if (normalBtn && expressBtn) {
+      if (type === 'normal') {
+        normalBtn.className = 'btn btn--primary btn--sm';
+        normalBtn.style.fontSize = '0.8rem';
+        expressBtn.className = 'btn btn--outline btn--sm';
+        expressBtn.style.fontSize = '0.8rem';
+      } else {
+        normalBtn.className = 'btn btn--outline btn--sm';
+        normalBtn.style.fontSize = '0.8rem';
+        expressBtn.className = 'btn btn--primary btn--sm';
+        expressBtn.style.fontSize = '0.8rem';
+      }
+    }
+    // Update displayed prices
+    const calculator = document.getElementById('priceCalculator');
+    if (calculator) {
+      calculator.querySelectorAll('.calculator__row[data-price]').forEach(row => {
+        const priceLabel = row.querySelector('.calculator__item-price');
+        if (priceLabel) {
+          const price = type === 'express'
+            ? row.dataset.expressPrice
+            : row.dataset.price;
+          if (row.dataset.price === row.dataset.expressPrice) {
+            priceLabel.textContent = '₹' + price + ' / piece (Always 24hr)';
+          } else {
+            priceLabel.textContent = '₹' + price + ' / piece';
+          }
+        }
+      });
+    }
+    updateTotal();
+  };
+
   function initCalculator() {
     const calculator = document.getElementById('priceCalculator');
     if (!calculator) return;
 
     const qtyBtns = calculator.querySelectorAll('.calculator__qty-btn');
-    const totalEl = calculator.querySelector('.calculator__total-value');
 
     qtyBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         const row = btn.closest('.calculator__row');
         const valueEl = row.querySelector('.calculator__qty-value');
+        if (!valueEl) return;
         let value = parseInt(valueEl.textContent);
         const action = btn.dataset.action;
 
         if (action === 'add') {
-          value = Math.min(value + 1, 50);
+          value = Math.min(value + 1, 99);
         } else if (action === 'sub') {
           value = Math.max(value - 1, 0);
         }
@@ -230,59 +270,133 @@
         updateTotal();
       });
     });
+  }
 
-    function updateTotal() {
-      let total = 0;
-      calculator.querySelectorAll('.calculator__row').forEach(row => {
-        const qty = parseInt(row.querySelector('.calculator__qty-value').textContent);
-        const price = parseInt(row.dataset.price);
-        total += qty * price;
+  function updateTotal() {
+    const calculator = document.getElementById('priceCalculator');
+    if (!calculator) return;
+    const totalEl = calculator.querySelector('.calculator__total-value');
+    let total = 0;
+    calculator.querySelectorAll('.calculator__row[data-price]').forEach(row => {
+      const qtyEl = row.querySelector('.calculator__qty-value');
+      if (!qtyEl) return;
+      const qty = parseInt(qtyEl.textContent);
+      const price = currentDelivery === 'express'
+        ? parseInt(row.dataset.expressPrice)
+        : parseInt(row.dataset.price);
+      total += qty * price;
+    });
+    if (totalEl) {
+      totalEl.textContent = '₹' + total.toLocaleString('en-IN');
+    }
+  }
+
+  // Pre-fill booking form from Pricing calculator
+  const calcBookBtn = document.getElementById('calcBookBtn');
+  if (calcBookBtn) {
+    calcBookBtn.addEventListener('click', () => {
+      const rows = document.querySelectorAll('.calculator__row[data-price]');
+      let summary = [];
+      let totalItems = 0;
+      rows.forEach(r => {
+        const name = r.querySelector('.calculator__item-name')?.textContent.trim();
+        const qty = parseInt(r.querySelector('.calculator__qty-value')?.textContent || '0');
+        if (qty > 0) {
+          summary.push(`${qty}x ${name}`);
+          totalItems += qty;
+        }
       });
-      if (totalEl) {
-        totalEl.textContent = '₹' + total.toLocaleString('en-IN');
+      const deliveryParam = currentDelivery === 'express' ? 'Express' : 'Normal';
+      const itemsParam = totalItems > 0 ? totalItems : '';
+      const notesParam = summary.length > 0 ? summary.join(', ') : '';
+      
+      const query = new URLSearchParams();
+      if (itemsParam) query.set('qty', itemsParam);
+      if (notesParam) query.set('notes', notesParam);
+      if (deliveryParam) query.set('delivery', deliveryParam);
+
+      window.location.href = `contact.html?${query.toString()}`;
+    });
+  }
+
+  // Check URL params on contact.html to prefill
+  if (window.location.pathname.includes('contact.html') || window.location.href.includes('contact.html')) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const qtyVal = urlParams.get('qty');
+    const notesVal = urlParams.get('notes');
+    const deliveryVal = urlParams.get('delivery');
+
+    if (qtyVal && document.getElementById('custQty')) {
+      document.getElementById('custQty').value = qtyVal;
+    }
+    if (notesVal && document.getElementById('custNotes')) {
+      document.getElementById('custNotes').value = `From Estimator: ${notesVal}`;
+    }
+    if (deliveryVal && document.getElementById('custDelivery')) {
+      if (deliveryVal.toLowerCase().includes('express')) {
+        document.getElementById('custDelivery').value = "Express Delivery (24 Hours - +₹5/pc)";
+      } else {
+        document.getElementById('custDelivery').value = "Normal Delivery (48 Hours)";
       }
     }
   }
 
   initCalculator();
 
-  // ─── CONTACT FORM VALIDATION (for contact page) ───
+  // ─── BOOKING ORDER FORM (WhatsApp Dispatcher) ───
+  const bookingForm = document.getElementById('bookingOrderForm');
+  if (bookingForm) {
+    bookingForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('custName')?.value.trim();
+      const phone = document.getElementById('custPhone')?.value.trim();
+      const city = document.getElementById('custCity')?.value.trim();
+      const address = document.getElementById('custAddress')?.value.trim();
+      const service = document.getElementById('custService')?.value.trim();
+      const delivery = document.getElementById('custDelivery')?.value.trim();
+      const slot = document.getElementById('custSlot')?.value.trim();
+      const qty = document.getElementById('custQty')?.value.trim() || 'Not specified';
+      const notes = document.getElementById('custNotes')?.value.trim() || 'None';
+
+      if (!name || !phone || !address) {
+        alert('Please fill in your name, phone number, and pickup address.');
+        return;
+      }
+
+      // Format WhatsApp message
+      const textMessage = 
+`🧺 *New Laundry Pickup Order — WashReady*
+━━━━━━━━━━━━━━━━━━
+👤 *Customer Name:* ${name}
+📞 *Phone:* ${phone}
+📍 *City:* ${city}
+🏠 *Address / Sector:* ${address}
+━━━━━━━━━━━━━━━━━━
+✨ *Service:* ${service}
+⚡ *Delivery Mode:* ${delivery}
+⏰ *Preferred Slot:* ${slot}
+👕 *Est. Items:* ${qty}
+📝 *Notes:* ${notes}
+━━━━━━━━━━━━━━━━━━
+_Sent via WashReady Website_`;
+
+      const businessWhatsAppNumber = "917355892555"; // WhatsApp Business
+      const encodedMessage = encodeURIComponent(textMessage);
+      const whatsappUrl = `https://wa.me/${businessWhatsAppNumber}?text=${encodedMessage}`;
+
+      // Open WhatsApp in new tab / app
+      window.open(whatsappUrl, '_blank');
+    });
+  }
+
+  // ─── LEGACY CONTACT FORM VALIDATION (Fallback) ───
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
-
-      const formData = new FormData(this);
-      const name = formData.get('name')?.trim();
-      const email = formData.get('email')?.trim();
-      const message = formData.get('message')?.trim();
-
-      if (!name || !email || !message) {
-        alert('Please fill in all required fields.');
-        return;
-      }
-
-      // Email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        alert('Please enter a valid email address.');
-        return;
-      }
-
-      // Simulate submission
-      const submitBtn = this.querySelector('button[type="submit"]');
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Sending...';
-      submitBtn.disabled = true;
-
-      setTimeout(() => {
-        submitBtn.textContent = 'Sent! ✓';
-        this.reset();
-        setTimeout(() => {
-          submitBtn.textContent = originalText;
-          submitBtn.disabled = false;
-        }, 2000);
-      }, 1200);
+      alert('Thank you! We will get in touch with you shortly.');
+      this.reset();
     });
   }
 

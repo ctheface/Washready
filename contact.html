@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us — WashReady</title>
-  <meta name="description" content="Get in touch with WashReady. Call, WhatsApp, or fill out our contact form. We'd love to hear from you.">
+  <title>Book a Pickup — WashReady</title>
+  <meta name="description" content="Book your laundry pickup with WashReady across Chandigarh, Mohali & Panchkula (Tricity). Quick order sent directly via WhatsApp.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
@@ -24,10 +24,10 @@
         <a href="services.html" class="navbar__link">Services</a>
         <a href="pricing.html" class="navbar__link">Pricing</a>
         <a href="about.html" class="navbar__link">About</a>
-        <a href="contact.html" class="navbar__link active">Contact</a>
+        <a href="contact.html" class="navbar__link active">Book Pickup</a>
       </div>
       <div class="navbar__actions">
-        <a href="pricing.html" class="btn btn--primary navbar__cta" style="display:inline-flex;">Book a Pickup</a>
+        <a href="contact.html" class="btn btn--primary navbar__cta" style="display:inline-flex;">Book a Pickup</a>
         <button class="navbar__toggle" id="navToggle" aria-label="Toggle menu">
           <span></span><span></span><span></span>
         </button>
@@ -39,9 +39,9 @@
         <a href="services.html" class="navbar__mobile-link">Services</a>
         <a href="pricing.html" class="navbar__mobile-link">Pricing</a>
         <a href="about.html" class="navbar__mobile-link">About</a>
-        <a href="contact.html" class="navbar__mobile-link">Contact</a>
+        <a href="contact.html" class="navbar__mobile-link">Book Pickup</a>
       </div>
-      <a href="pricing.html" class="btn btn--primary btn--lg">Book a Pickup</a>
+      <a href="contact.html" class="btn btn--primary btn--lg">Book a Pickup</a>
     </div>
   </nav>
 
@@ -52,91 +52,139 @@
         <div class="page-header__breadcrumb">
           <a href="index.html">Home</a>
           <span>/</span>
-          <span>Contact</span>
+          <span>Book Pickup</span>
         </div>
-        <h1>Let's talk</h1>
-        <p>Have a question, want to book a pickup, or just want to say hi? We're here for all of it.</p>
+        <h1>Schedule Your Pickup</h1>
+        <p>Simple doorstep service across Chandigarh Tricity (Chandigarh, Mohali & Panchkula). Fill the details and confirm directly on WhatsApp.</p>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
+  <!-- BOOKING SECTION -->
   <section class="section">
     <div class="container">
-      <div class="contact-grid reveal">
+      <div class="contact-grid reveal" style="align-items: start;">
 
-        <!-- Contact Form -->
+        <!-- Order Booking Form -->
         <div>
-          <h2 style="font-size: var(--text-2xl); margin-bottom: var(--space-2);">Send us a message</h2>
-          <p style="margin-bottom: var(--space-8); color: var(--color-text-secondary);">Fill out the form and we'll get back to you within a few hours.</p>
+          <h2 style="font-size: var(--text-2xl); margin-bottom: var(--space-2);">Fill Order Details</h2>
+          <p style="margin-bottom: var(--space-8); color: var(--color-text-secondary);">Your order will be instantly prepared and opened in WhatsApp with one click.</p>
 
-          <form id="contactForm">
+          <form id="bookingOrderForm">
             <div class="form-group">
-              <label class="form-label" for="contactName">Full Name *</label>
-              <input type="text" class="form-input" id="contactName" name="name" placeholder="Your name" required>
+              <label class="form-label" for="custName">Your Name *</label>
+              <input type="text" class="form-input" id="custName" name="custName" placeholder="e.g. Rahul Sharma" required>
             </div>
+
             <div class="form-group">
-              <label class="form-label" for="contactEmail">Email Address *</label>
-              <input type="email" class="form-input" id="contactEmail" name="email" placeholder="you@email.com" required>
+              <label class="form-label" for="custPhone">Phone / WhatsApp Number *</label>
+              <input type="tel" class="form-input" id="custPhone" name="custPhone" placeholder="e.g. 9876543210" required>
             </div>
+
             <div class="form-group">
-              <label class="form-label" for="contactPhone">Phone Number</label>
-              <input type="tel" class="form-input" id="contactPhone" name="phone" placeholder="+91 98765 43210">
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="contactService">Service Interested In</label>
-              <select class="form-input" id="contactService" name="service">
-                <option value="">Select a service (optional)</option>
-                <option value="washing">Washing</option>
-                <option value="cleaning">Deep Cleaning</option>
-                <option value="drying">Drying</option>
-                <option value="ironing">Ironing</option>
-                <option value="premium">Premium Care</option>
-                <option value="subscription">Monthly Subscription</option>
-                <option value="other">Other / General Inquiry</option>
+              <label class="form-label" for="custCity">City / Tricity Region *</label>
+              <select class="form-input" id="custCity" name="custCity" required>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Mohali">Mohali</option>
+                <option value="Panchkula">Panchkula</option>
+                <option value="Zirakpur">Zirakpur</option>
               </select>
             </div>
+
             <div class="form-group">
-              <label class="form-label" for="contactMessage">Message *</label>
-              <textarea class="form-textarea" id="contactMessage" name="message" placeholder="Tell us what you need..." required></textarea>
+              <label class="form-label" for="custAddress">Pickup Address & Sector / Landmark *</label>
+              <textarea class="form-textarea" id="custAddress" name="custAddress" rows="3" placeholder="House/Flat No., Street, Sector/Area, Landmark" required></textarea>
             </div>
-            <button type="submit" class="btn btn--primary btn--lg">Send Message</button>
+
+            <div class="form-group">
+              <label class="form-label" for="custService">Select Service *</label>
+              <select class="form-input" id="custService" name="custService" required>
+                <option value="Wash, Dry & Fold (₹22/pc)">Wash, Dry & Fold (₹22/pc)</option>
+                <option value="Wash, Dry & Iron (₹27/pc)">Wash, Dry & Iron (₹27/pc)</option>
+                <option value="Iron & Finish (₹15/pc - 24hr delivery)">Iron & Finish (₹15/pc - 24hr delivery)</option>
+                <option value="Mixed / Multiple Services">Mixed / Multiple Services</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="custDelivery">Delivery Speed *</label>
+              <select class="form-input" id="custDelivery" name="custDelivery" required>
+                <option value="Normal Delivery (48 Hours)">Normal Delivery (48 Hours)</option>
+                <option value="Express Delivery (24 Hours - +₹5/pc)">Express Delivery (24 Hours - +₹5/pc)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="custQty">Estimated Clothes Count (Optional)</label>
+              <input type="number" class="form-input" id="custQty" name="custQty" min="1" placeholder="e.g. 10 items">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="custSlot">Preferred Pickup Slot *</label>
+              <select class="form-input" id="custSlot" name="custSlot" required>
+                <option value="Morning Slot (8:00 AM – 12:00 PM)">🌅 Morning Slot (8:00 AM – 12:00 PM)</option>
+                <option value="Evening Slot (4:00 PM – 8:00 PM)">🌇 Evening Slot (4:00 PM – 8:00 PM)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="custNotes">Special Instructions / Landmarks</label>
+              <input type="text" class="form-input" id="custNotes" name="custNotes" placeholder="e.g. Call before arriving / ring bell">
+            </div>
+
+            <!-- Trust / Payment Badge -->
+            <div style="background: #f8fafc; border: 1px dashed var(--slate-300); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); margin-bottom: var(--space-5); display: flex; align-items: center; gap: 0.75rem; font-size: 0.85rem; color: var(--slate-700);">
+              <span style="font-size: 1.25rem;">🛡️</span>
+              <div>
+                <strong>Zero Prepayment Required:</strong> Pay conveniently via UPI (GPay/PhonePe/Paytm) or Cash upon pickup or delivery.
+              </div>
+            </div>
+
+            <!-- Minimum order notice -->
+            <div style="font-size: 0.8rem; color: var(--color-text-light); margin-bottom: var(--space-4); text-align: center;">
+              💡 <em>Free pickup across Tricity on orders with 5+ items or minimum order value ₹150.</em>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--lg" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: #25D366; border-color: #25D366; color: #fff;">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Send Order via WhatsApp
+            </button>
           </form>
         </div>
 
-        <!-- Contact Info -->
+        <!-- Service Area & Quick Info -->
         <div>
-          <h2 style="font-size: var(--text-2xl); margin-bottom: var(--space-2);">Other ways to reach us</h2>
-          <p style="margin-bottom: var(--space-8); color: var(--color-text-secondary);">We're available 7 days a week, 8 AM to 10 PM.</p>
+          <h2 style="font-size: var(--text-2xl); margin-bottom: var(--space-2);">Service Coverage</h2>
+          <p style="margin-bottom: var(--space-6); color: var(--color-text-secondary);">Currently operating exclusively across the Tricity Capital Region.</p>
+
+          <div style="background: var(--blue-50); border: 1px solid var(--blue-100); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-6);">
+            <div style="font-weight: 700; color: var(--blue-700); font-size: 1.1rem; margin-bottom: 0.5rem;">📍 Serving Tricity:</div>
+            <ul style="list-style: none; padding: 0; margin: 0; line-height: 2; color: var(--slate-700);">
+              <li>✓ <strong>Chandigarh</strong> (All Sectors)</li>
+              <li>✓ <strong>Mohali</strong> (SAS Nagar & Sectors)</li>
+              <li>✓ <strong>Panchkula</strong> (All Sectors & MDC)</li>
+              <li>✓ <strong>Zirakpur</strong> (VIP Road & Environs)</li>
+            </ul>
+          </div>
 
           <div class="contact-info">
+            <div class="contact-info__item">
+              <div class="contact-info__icon" style="background: #dcfce7; color: #16a34a;">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </div>
+              <div>
+                <div class="contact-info__label">WhatsApp Quick Support</div>
+                <div class="contact-info__value"><a href="https://wa.me/917355892555" target="_blank" rel="noopener">Chat on WhatsApp: +91 73558 92555</a></div>
+              </div>
+            </div>
+
             <div class="contact-info__item">
               <div class="contact-info__icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </div>
               <div>
-                <div class="contact-info__label">Phone</div>
-                <div class="contact-info__value"><a href="tel:+919876543210">+91 98765 43210</a></div>
-              </div>
-            </div>
-
-            <div class="contact-info__item">
-              <div class="contact-info__icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </div>
-              <div>
-                <div class="contact-info__label">Email</div>
-                <div class="contact-info__value"><a href="mailto:hello@washready.in">hello@washready.in</a></div>
-              </div>
-            </div>
-
-            <div class="contact-info__item">
-              <div class="contact-info__icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              </div>
-              <div>
-                <div class="contact-info__label">Address</div>
-                <div class="contact-info__value">123 Clean Street, Sector 5<br>New Delhi, 110001</div>
+                <div class="contact-info__label">Direct Helpline</div>
+                <div class="contact-info__value"><a href="tel:+917355892555">+91 73558 92555</a></div>
               </div>
             </div>
 
@@ -145,39 +193,13 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               </div>
               <div>
-                <div class="contact-info__label">Business Hours</div>
-                <div class="contact-info__value">Mon–Sun: 8:00 AM – 10:00 PM<br>Pickups: 9:00 AM – 8:00 PM</div>
+                <div class="contact-info__label">Operating Hours</div>
+                <div class="contact-info__value">Mon–Sun: 8:00 AM – 9:00 PM<br>Doorstep Pickups: Daily</div>
               </div>
             </div>
-
-            <div class="contact-info__item">
-              <div class="contact-info__icon" style="background: #dcfce7; color: #16a34a;">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              </div>
-              <div>
-                <div class="contact-info__label">WhatsApp</div>
-                <div class="contact-info__value"><a href="https://wa.me/919876543210">Chat with us on WhatsApp</a></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Map -->
-          <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.4067472592523!2d77.20997!3d28.62!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM3JzEyLjAiTiA3N8KwMTInMzUuOSJF!5e0!3m2!1sen!2sin!4v1" allowfullscreen loading="lazy" title="WashReady Location"></iframe>
           </div>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-section__inner reveal">
-        <h2>Prefer to just book directly?</h2>
-        <p>Skip the form — view our pricing and schedule your first pickup now.</p>
-        <a href="pricing.html" class="btn btn--white btn--lg">View Pricing</a>
       </div>
     </div>
   </section>
@@ -185,45 +207,45 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <div class="footer__top">
+      <div class="footer__top" style="grid-template-columns: 2fr 1fr 1fr;">
         <div class="footer__brand">
           <a href="index.html" class="navbar__logo"><span class="navbar__logo-icon">🧺</span> WashReady</a>
-          <p>Premium laundry services with doorstep pickup and delivery. Fresh clothes, zero effort.</p>
+          <p>Professional laundry services across Chandigarh, Mohali & Panchkula. Doorstep pickup, clean clothes, zero effort.</p>
+          <p style="margin-top: 0.75rem; font-size: 0.9rem; color: #fff;">
+            📱 WhatsApp / Call: <a href="https://wa.me/917355892555" style="color: #25D366; font-weight: 600;">+91 73558 92555</a>
+          </p>
         </div>
         <div>
           <h4 class="footer__col-title">Services</h4>
           <div class="footer__links">
-            <a href="services.html" class="footer__link">Washing</a>
-            <a href="services.html" class="footer__link">Deep Cleaning</a>
-            <a href="services.html" class="footer__link">Drying</a>
-            <a href="services.html" class="footer__link">Ironing</a>
+            <a href="services.html" class="footer__link">Wash, Dry & Fold</a>
+            <a href="services.html" class="footer__link">Wash, Dry & Iron</a>
+            <a href="services.html" class="footer__link">Iron & Finish</a>
+            <a href="pricing.html" class="footer__link">Pricing Plans</a>
           </div>
         </div>
         <div>
-          <h4 class="footer__col-title">Company</h4>
+          <h4 class="footer__col-title">Quick Links</h4>
           <div class="footer__links">
             <a href="about.html" class="footer__link">About Us</a>
-            <a href="contact.html" class="footer__link">Contact</a>
+            <a href="contact.html" class="footer__link">Book Pickup</a>
             <a href="pricing.html" class="footer__link">Pricing</a>
-          </div>
-        </div>
-        <div>
-          <h4 class="footer__col-title">Stay Updated</h4>
-          <p style="font-size:0.875rem;color:var(--color-text-on-dark-secondary);margin-bottom:1rem;line-height:1.6;">Tips, offers, and updates.</p>
-          <div class="footer__newsletter">
-            <form class="footer__newsletter-form" onsubmit="event.preventDefault();this.reset();alert('Thanks!');">
-              <input type="email" class="footer__newsletter-input" placeholder="you@email.com" required aria-label="Email">
-              <button type="submit" class="btn btn--primary btn--sm">Join</button>
-            </form>
+            <a href="https://wa.me/917355892555" target="_blank" rel="noopener" class="footer__link">WhatsApp Us</a>
           </div>
         </div>
       </div>
       <div class="footer__bottom">
         <span>© 2026 WashReady. All rights reserved.</span>
-        <span>Made with care, for your clothes.</span>
+        <span>Serving Chandigarh, Mohali & Panchkula.</span>
       </div>
     </div>
   </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/917355892555?text=Hi%20WashReady!%20I%20have%20a%20question%20about%20your%20laundry%20service." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span>Chat with us</span>
+  </a>
 
   <button class="back-to-top" id="backToTop" aria-label="Back to top">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
