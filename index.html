@@ -24,8 +24,7 @@
   <nav class="navbar" id="navbar">
     <div class="navbar__inner">
       <a href="index.html" class="navbar__logo">
-        <span class="navbar__logo-icon">🧺</span>
-        WashReady
+        <img src="image.png" alt="WashReady Logo" class="navbar__logo-img">
       </a>
 
       <div class="navbar__links">
@@ -33,12 +32,11 @@
         <a href="services.html" class="navbar__link">Services</a>
         <a href="pricing.html" class="navbar__link">Pricing</a>
         <a href="about.html" class="navbar__link">About</a>
-        <a href="contact.html" class="navbar__link">Book Pickup</a>
       </div>
 
       <div class="navbar__actions">
-        <a href="contact.html" class="btn btn--primary navbar__cta" style="display: inline-flex;">Book a Pickup</a>
-        <button class="navbar__toggle" id="navToggle" aria-label="Toggle menu">
+        <a href="contact.html" class="btn btn--primary navbar__cta">Book a Pickup</a>
+        <button class="navbar__toggle" id="navToggle" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -47,13 +45,12 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div class="navbar__mobile" id="mobileMenu">
+    <div class="navbar__mobile" id="mobileMenu" aria-hidden="true" inert>
       <div class="navbar__mobile-links">
         <a href="index.html" class="navbar__mobile-link">Home</a>
         <a href="services.html" class="navbar__mobile-link">Services</a>
         <a href="pricing.html" class="navbar__mobile-link">Pricing</a>
         <a href="about.html" class="navbar__mobile-link">About</a>
-        <a href="contact.html" class="navbar__mobile-link">Book Pickup</a>
       </div>
       <a href="contact.html" class="btn btn--primary btn--lg">Book a Pickup</a>
     </div>
@@ -85,9 +82,6 @@
             <a href="contact.html" class="btn btn--primary btn--lg">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               Schedule a Pickup
-            </a>
-            <a href="services.html" class="btn btn--outline btn--lg">
-              Our Services
             </a>
           </div>
         </div>
@@ -137,82 +131,6 @@
             <h3 class="step-card__title">Delivered Fresh</h3>
             <p class="step-card__desc">Neatly folded or hung — your clean clothes come back to your doorstep, on schedule.</p>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====== SERVICES ====== -->
-  <section class="section" id="services">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Our Services</span>
-        <h2>Everything your wardrobe needs</h2>
-        <p>Three simple service options — pick what works for you and we handle the rest.</p>
-      </div>
-
-      <div class="services-grid">
-        <div class="service-card service-card--wash reveal reveal-delay-1">
-          <div class="service-card__icon">🫧</div>
-          <h3 class="service-card__title">Wash, Dry & Fold</h3>
-          <p class="service-card__desc">Your everyday laundry, handled with care. We wash, tumble dry, and neatly fold everything — ready to go straight into your closet.</p>
-          <div class="service-card__features">
-            <span class="service-card__feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              Color separation
-            </span>
-            <span class="service-card__feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              Fabric-safe detergents
-            </span>
-          </div>
-          <span class="service-card__price">₹22 / piece</span>
-          <a href="services.html" class="service-card__link">
-            Learn more
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-        </div>
-
-        <div class="service-card service-card--iron reveal reveal-delay-2">
-          <div class="service-card__icon">👔</div>
-          <h3 class="service-card__title">Wash, Dry & Iron</h3>
-          <p class="service-card__desc">The complete treatment. Washed, dried, and professionally pressed — your clothes come back crisp, crease-free, and ready to wear.</p>
-          <div class="service-card__features">
-            <span class="service-card__feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              Steam press finish
-            </span>
-            <span class="service-card__feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              Hanger or folded delivery
-            </span>
-          </div>
-          <span class="service-card__price">₹27 / piece</span>
-          <a href="services.html" class="service-card__link">
-            Learn more
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-        </div>
-
-        <div class="service-card service-card--dry reveal reveal-delay-3">
-          <div class="service-card__icon">✨</div>
-          <h3 class="service-card__title">Iron & Finish</h3>
-          <p class="service-card__desc">Already washed? Just need a sharp finish? Our ironing service gives your clothes that fresh crispness with standard 24-hour delivery.</p>
-          <div class="service-card__features">
-            <span class="service-card__feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              Steam & hand press
-            </span>
-            <span class="service-card__feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              Standard 24hr delivery
-            </span>
-          </div>
-          <span class="service-card__price">₹15 / piece</span>
-          <a href="services.html" class="service-card__link">
-            Learn more
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
         </div>
       </div>
     </div>
@@ -366,14 +284,16 @@
   <!-- ====== FOOTER ====== -->
   <footer class="footer">
     <div class="container">
-      <div class="footer__top" style="grid-template-columns: 2fr 1fr 1fr;">
+      <div class="footer__top">
         <div class="footer__brand">
-          <a href="index.html" class="navbar__logo">
-            <span class="navbar__logo-icon">🧺</span>
-            WashReady
+          <a href="index.html" class="navbar__logo" style="margin-bottom: 0.75rem;">
+            <img src="image.png" alt="WashReady Logo" class="footer__logo-img">
           </a>
           <p>Professional laundry services across Chandigarh, Mohali & Panchkula. Doorstep pickup, clean clothes, zero effort.</p>
-          <p style="margin-top: 0.75rem; font-size: 0.9rem; color: #fff;">
+          <p style="margin-top: 0.75rem; font-size: 0.85rem; color: #cbd5e1;">
+            📍 <strong>Store Address:</strong> Shop LG-16, Green Lotus Saksham Arcade, Patiala Road, Zirakpur
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #fff;">
             📱 WhatsApp / Call: <a href="https://wa.me/917355892555" style="color: #25D366; font-weight: 600;">+91 73558 92555</a>
           </p>
         </div>
@@ -382,8 +302,8 @@
           <h4 class="footer__col-title">Services</h4>
           <div class="footer__links">
             <a href="services.html" class="footer__link">Wash, Dry & Fold</a>
-            <a href="services.html" class="footer__link">Wash, Dry & Iron</a>
-            <a href="services.html" class="footer__link">Iron & Finish</a>
+            <a href="services.html" class="footer__link">Wash, Fold & Iron</a>
+            <a href="services.html" class="footer__link">Steam Press</a>
             <a href="pricing.html" class="footer__link">Pricing Plans</a>
           </div>
         </div>

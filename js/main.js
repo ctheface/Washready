@@ -27,19 +27,36 @@
   const mobileMenu = document.getElementById('mobileMenu');
 
   if (navToggle && mobileMenu) {
+    function setMobileMenu(open) {
+      navToggle.classList.toggle('open', open);
+      mobileMenu.classList.toggle('open', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      mobileMenu.setAttribute('aria-hidden', String(!open));
+      mobileMenu.inert = !open;
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
     navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+      setMobileMenu(!mobileMenu.classList.contains('open'));
     });
 
     // Close menu when clicking a link
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        navToggle.classList.remove('open');
-        mobileMenu.classList.remove('open');
-        document.body.style.overflow = '';
+        setMobileMenu(false);
       });
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        setMobileMenu(false);
+        navToggle.focus();
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1024) setMobileMenu(false);
     });
   }
 
@@ -216,14 +233,10 @@
     if (normalBtn && expressBtn) {
       if (type === 'normal') {
         normalBtn.className = 'btn btn--primary btn--sm';
-        normalBtn.style.fontSize = '0.8rem';
         expressBtn.className = 'btn btn--outline btn--sm';
-        expressBtn.style.fontSize = '0.8rem';
       } else {
         normalBtn.className = 'btn btn--outline btn--sm';
-        normalBtn.style.fontSize = '0.8rem';
         expressBtn.className = 'btn btn--primary btn--sm';
-        expressBtn.style.fontSize = '0.8rem';
       }
     }
     // Update displayed prices
@@ -235,11 +248,9 @@
           const price = type === 'express'
             ? row.dataset.expressPrice
             : row.dataset.price;
-          if (row.dataset.price === row.dataset.expressPrice) {
-            priceLabel.textContent = '₹' + price + ' / piece (Always 24hr)';
-          } else {
-            priceLabel.textContent = '₹' + price + ' / piece';
-          }
+          const unit = row.dataset.unit || 'piece';
+          const prefix = row.dataset.startingPrice === 'true' ? 'Starts @ ' : '';
+          priceLabel.textContent = prefix + '₹' + price + ' / ' + unit;
         }
       });
     }
@@ -257,13 +268,14 @@
         const row = btn.closest('.calculator__row');
         const valueEl = row.querySelector('.calculator__qty-value');
         if (!valueEl) return;
-        let value = parseInt(valueEl.textContent);
+        let value = parseFloat(valueEl.textContent);
+        const step = parseFloat(row.dataset.step || '1');
         const action = btn.dataset.action;
 
         if (action === 'add') {
-          value = Math.min(value + 1, 99);
+          value = Math.min(value + step, 99);
         } else if (action === 'sub') {
-          value = Math.max(value - 1, 0);
+          value = Math.max(value - step, 0);
         }
 
         valueEl.textContent = value;
@@ -280,7 +292,7 @@
     calculator.querySelectorAll('.calculator__row[data-price]').forEach(row => {
       const qtyEl = row.querySelector('.calculator__qty-value');
       if (!qtyEl) return;
-      const qty = parseInt(qtyEl.textContent);
+      const qty = parseFloat(qtyEl.textContent);
       const price = currentDelivery === 'express'
         ? parseInt(row.dataset.expressPrice)
         : parseInt(row.dataset.price);
@@ -297,13 +309,16 @@
     calcBookBtn.addEventListener('click', () => {
       const rows = document.querySelectorAll('.calculator__row[data-price]');
       let summary = [];
+      let selectedServices = [];
       let totalItems = 0;
       rows.forEach(r => {
-        const name = r.querySelector('.calculator__item-name')?.textContent.trim();
-        const qty = parseInt(r.querySelector('.calculator__qty-value')?.textContent || '0');
+        const name = r.dataset.service || r.querySelector('.calculator__item-name')?.textContent.trim();
+        const qty = parseFloat(r.querySelector('.calculator__qty-value')?.textContent || '0');
         if (qty > 0) {
-          summary.push(`${qty}x ${name}`);
-          totalItems += qty;
+          const unit = r.dataset.unit === 'kg' ? 'kg' : 'pcs';
+          summary.push(`${qty} ${unit} ${name}`);
+          selectedServices.push(name);
+          if (unit === 'pcs') totalItems += qty;
         }
       });
       const deliveryParam = currentDelivery === 'express' ? 'Express' : 'Normal';
@@ -313,6 +328,9 @@
       const query = new URLSearchParams();
       if (itemsParam) query.set('qty', itemsParam);
       if (notesParam) query.set('notes', notesParam);
+      if (selectedServices.length) {
+        query.set('service', selectedServices.length === 1 ? selectedServices[0] : 'Mixed / Multiple Services');
+      }
       if (deliveryParam) query.set('delivery', deliveryParam);
 
       window.location.href = `contact.html?${query.toString()}`;
@@ -325,6 +343,15 @@
     const qtyVal = urlParams.get('qty');
     const notesVal = urlParams.get('notes');
     const deliveryVal = urlParams.get('delivery');
+    const serviceVal = urlParams.get('service');
+
+    const serviceSelect = document.getElementById('custService');
+    if (serviceVal && serviceSelect) {
+      const option = Array.from(serviceSelect.options).find(option =>
+        option.value === serviceVal || option.value.startsWith(serviceVal + ' (') || option.value.startsWith(serviceVal + ' -')
+      );
+      if (option) serviceSelect.value = option.value;
+    }
 
     if (qtyVal && document.getElementById('custQty')) {
       document.getElementById('custQty').value = qtyVal;

@@ -16,30 +16,27 @@
   <nav class="navbar" id="navbar">
     <div class="navbar__inner">
       <a href="index.html" class="navbar__logo">
-        <span class="navbar__logo-icon">🧺</span>
-        WashReady
+        <img src="image.png" alt="WashReady Logo" class="navbar__logo-img">
       </a>
       <div class="navbar__links">
         <a href="index.html" class="navbar__link">Home</a>
         <a href="services.html" class="navbar__link">Services</a>
         <a href="pricing.html" class="navbar__link">Pricing</a>
         <a href="about.html" class="navbar__link">About</a>
-        <a href="contact.html" class="navbar__link active">Book Pickup</a>
       </div>
       <div class="navbar__actions">
-        <a href="contact.html" class="btn btn--primary navbar__cta" style="display:inline-flex;">Book a Pickup</a>
-        <button class="navbar__toggle" id="navToggle" aria-label="Toggle menu">
+        <a href="contact.html" class="btn btn--primary navbar__cta">Book a Pickup</a>
+        <button class="navbar__toggle" id="navToggle" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
-    <div class="navbar__mobile" id="mobileMenu">
+    <div class="navbar__mobile" id="mobileMenu" aria-hidden="true" inert>
       <div class="navbar__mobile-links">
         <a href="index.html" class="navbar__mobile-link">Home</a>
         <a href="services.html" class="navbar__mobile-link">Services</a>
         <a href="pricing.html" class="navbar__mobile-link">Pricing</a>
         <a href="about.html" class="navbar__mobile-link">About</a>
-        <a href="contact.html" class="navbar__mobile-link">Book Pickup</a>
       </div>
       <a href="contact.html" class="btn btn--primary btn--lg">Book a Pickup</a>
     </div>
@@ -70,7 +67,7 @@
           <h2 style="font-size: var(--text-2xl); margin-bottom: var(--space-2);">Fill Order Details</h2>
           <p style="margin-bottom: var(--space-8); color: var(--color-text-secondary);">Your order will be instantly prepared and opened in WhatsApp with one click.</p>
 
-          <form id="bookingOrderForm">
+          <form class="booking-form" id="bookingOrderForm">
             <div class="form-group">
               <label class="form-label" for="custName">Your Name *</label>
               <input type="text" class="form-input" id="custName" name="custName" placeholder="e.g. Rahul Sharma" required>
@@ -78,7 +75,7 @@
 
             <div class="form-group">
               <label class="form-label" for="custPhone">Phone / WhatsApp Number *</label>
-              <input type="tel" class="form-input" id="custPhone" name="custPhone" placeholder="e.g. 9876543210" required>
+              <input type="tel" class="form-input" id="custPhone" inputmode="tel" autocomplete="tel" name="custPhone" placeholder="e.g. 9876543210" required>
             </div>
 
             <div class="form-group">
@@ -99,9 +96,24 @@
             <div class="form-group">
               <label class="form-label" for="custService">Select Service *</label>
               <select class="form-input" id="custService" name="custService" required>
-                <option value="Wash, Dry & Fold (₹22/pc)">Wash, Dry & Fold (₹22/pc)</option>
-                <option value="Wash, Dry & Iron (₹27/pc)">Wash, Dry & Iron (₹27/pc)</option>
-                <option value="Iron & Finish (₹15/pc - 24hr delivery)">Iron & Finish (₹15/pc - 24hr delivery)</option>
+                <optgroup label="Standard Per-Piece Packages">
+                  <option value="Wash, Dry & Fold (₹22/pc)">Wash, Dry & Fold (₹22/pc)</option>
+                  <option value="Wash, Fold & Iron (₹27/pc)">Wash, Fold & Iron (₹27/pc)</option>
+                </optgroup>
+                <optgroup label="Specialized Per-Kg Wash Press">
+                  <option value="Washing Press (Normal) - ₹120/kg">Washing Press (Normal) — ₹120/kg</option>
+                  <option value="Ozone Wash Press - ₹150/kg">Ozone Wash Press — ₹150/kg</option>
+                  <option value="Silicon Wash Press - ₹160/kg">Silicon Wash Press — ₹160/kg</option>
+                  <option value="Fragrance Wash Press - ₹175/kg">Fragrance Wash Press — ₹175/kg</option>
+                  <option value="Nano Bubble Deep Wash Press - ₹185/kg">Nano Bubble Deep Wash Press — ₹185/kg</option>
+                  <option value="Enzyme / Anti-Bacterial Wash Press - ₹200/kg">Enzyme / Anti-Bacterial Wash Press — ₹200/kg</option>
+                  <option value="Organic Wash Press - ₹225/kg">Organic Wash Press — ₹225/kg</option>
+                </optgroup>
+                <optgroup label="Specialized Care & Press">
+                  <option value="Dry Cleaning (Starts @ ₹150/pc)">Dry Cleaning (Starts @ ₹150/pc)</option>
+                  <option value="Steam Press (₹20/pc)">Steam Press (₹20/pc)</option>
+                  <option value="Steam Fragrance Press (₹25/pc)">Steam Fragrance Press (₹25/pc)</option>
+                </optgroup>
                 <option value="Mixed / Multiple Services">Mixed / Multiple Services</option>
               </select>
             </div>
@@ -110,8 +122,9 @@
               <label class="form-label" for="custDelivery">Delivery Speed *</label>
               <select class="form-input" id="custDelivery" name="custDelivery" required>
                 <option value="Normal Delivery (48 Hours)">Normal Delivery (48 Hours)</option>
-                <option value="Express Delivery (24 Hours - +₹5/pc)">Express Delivery (24 Hours - +₹5/pc)</option>
+                <option value="Express Delivery (24 Hours - +₹5/pc)">Express Delivery (24 Hours - +₹5/pc for the two everyday packages)</option>
               </select>
+              <p style="font-size: 0.85rem; margin-top: var(--space-2);">The express surcharge applies to Wash, Dry &amp; Fold and Wash, Fold &amp; Iron only. Confirm turnaround for other services when booking.</p>
             </div>
 
             <div class="form-group">
@@ -129,7 +142,7 @@
 
             <div class="form-group">
               <label class="form-label" for="custNotes">Special Instructions / Landmarks</label>
-              <input type="text" class="form-input" id="custNotes" name="custNotes" placeholder="e.g. Call before arriving / ring bell">
+              <input type="text" class="form-input" id="custNotes" name="custNotes" placeholder="e.g. 2.5 kg Ozone Wash Press / call before arriving">
             </div>
 
             <!-- Trust / Payment Badge -->
@@ -138,11 +151,6 @@
               <div>
                 <strong>Zero Prepayment Required:</strong> Pay conveniently via UPI (GPay/PhonePe/Paytm) or Cash upon pickup or delivery.
               </div>
-            </div>
-
-            <!-- Minimum order notice -->
-            <div style="font-size: 0.8rem; color: var(--color-text-light); margin-bottom: var(--space-4); text-align: center;">
-              💡 <em>Free pickup across Tricity on orders with 5+ items or minimum order value ₹150.</em>
             </div>
 
             <button type="submit" class="btn btn--primary btn--lg" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: #25D366; border-color: #25D366; color: #fff;">
@@ -168,6 +176,18 @@
           </div>
 
           <div class="contact-info">
+            <div class="contact-info__item">
+              <div class="contact-info__icon" style="background: #e0f2fe; color: #0284c7;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <div class="contact-info__label">Store / Workshop Address</div>
+                <div class="contact-info__value">
+                  <strong>Shop LG-16</strong>, Green Lotus Saksham Arcade,<br>Patiala Road, Zirakpur
+                </div>
+              </div>
+            </div>
+
             <div class="contact-info__item">
               <div class="contact-info__icon" style="background: #dcfce7; color: #16a34a;">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -207,11 +227,16 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <div class="footer__top" style="grid-template-columns: 2fr 1fr 1fr;">
+      <div class="footer__top">
         <div class="footer__brand">
-          <a href="index.html" class="navbar__logo"><span class="navbar__logo-icon">🧺</span> WashReady</a>
+          <a href="index.html" class="navbar__logo" style="margin-bottom: 0.75rem;">
+            <img src="image.png" alt="WashReady Logo" class="footer__logo-img">
+          </a>
           <p>Professional laundry services across Chandigarh, Mohali & Panchkula. Doorstep pickup, clean clothes, zero effort.</p>
-          <p style="margin-top: 0.75rem; font-size: 0.9rem; color: #fff;">
+          <p style="margin-top: 0.75rem; font-size: 0.85rem; color: #cbd5e1;">
+            📍 <strong>Store Address:</strong> Shop LG-16, Green Lotus Saksham Arcade, Patiala Road, Zirakpur
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #fff;">
             📱 WhatsApp / Call: <a href="https://wa.me/917355892555" style="color: #25D366; font-weight: 600;">+91 73558 92555</a>
           </p>
         </div>
@@ -219,8 +244,8 @@
           <h4 class="footer__col-title">Services</h4>
           <div class="footer__links">
             <a href="services.html" class="footer__link">Wash, Dry & Fold</a>
-            <a href="services.html" class="footer__link">Wash, Dry & Iron</a>
-            <a href="services.html" class="footer__link">Iron & Finish</a>
+            <a href="services.html" class="footer__link">Wash, Fold & Iron</a>
+            <a href="services.html" class="footer__link">Steam Press</a>
             <a href="pricing.html" class="footer__link">Pricing Plans</a>
           </div>
         </div>

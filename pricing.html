@@ -16,30 +16,27 @@
   <nav class="navbar" id="navbar">
     <div class="navbar__inner">
       <a href="index.html" class="navbar__logo">
-        <span class="navbar__logo-icon">🧺</span>
-        WashReady
+        <img src="image.png" alt="WashReady Logo" class="navbar__logo-img">
       </a>
       <div class="navbar__links">
         <a href="index.html" class="navbar__link">Home</a>
         <a href="services.html" class="navbar__link">Services</a>
         <a href="pricing.html" class="navbar__link active">Pricing</a>
         <a href="about.html" class="navbar__link">About</a>
-        <a href="contact.html" class="navbar__link">Book Pickup</a>
       </div>
       <div class="navbar__actions">
-        <a href="contact.html" class="btn btn--primary navbar__cta" style="display:inline-flex;">Book a Pickup</a>
-        <button class="navbar__toggle" id="navToggle" aria-label="Toggle menu">
+        <a href="contact.html" class="btn btn--primary navbar__cta">Book a Pickup</a>
+        <button class="navbar__toggle" id="navToggle" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
-    <div class="navbar__mobile" id="mobileMenu">
+    <div class="navbar__mobile" id="mobileMenu" aria-hidden="true" inert>
       <div class="navbar__mobile-links">
         <a href="index.html" class="navbar__mobile-link">Home</a>
         <a href="services.html" class="navbar__mobile-link">Services</a>
         <a href="pricing.html" class="navbar__mobile-link">Pricing</a>
         <a href="about.html" class="navbar__mobile-link">About</a>
-        <a href="contact.html" class="navbar__mobile-link">Book Pickup</a>
       </div>
       <a href="contact.html" class="btn btn--primary btn--lg">Book a Pickup</a>
     </div>
@@ -99,10 +96,10 @@
           <a href="contact.html" class="btn btn--outline" style="width:100%">Book Now</a>
         </div>
 
-        <!-- Wash, Dry & Iron — Popular -->
+        <!-- Wash, Fold & Iron — Popular -->
         <div class="pricing-card pricing-card--popular reveal reveal-delay-2">
           <span class="pricing-card__badge">Most Popular</span>
-          <h3 class="pricing-card__name">Wash, Dry & Iron</h3>
+          <h3 class="pricing-card__name">Wash, Fold & Iron</h3>
           <p class="pricing-card__desc">Complete care — washed, dried, and crisply steam pressed.</p>
           <div class="pricing-card__price">
             <span class="pricing-card__amount">₹27</span>
@@ -134,19 +131,19 @@
           <a href="contact.html" class="btn btn--primary" style="width:100%">Book Now</a>
         </div>
 
-        <!-- Iron & Finish -->
+        <!-- Steam Press -->
         <div class="pricing-card reveal reveal-delay-3">
-          <h3 class="pricing-card__name">Iron & Finish</h3>
-          <p class="pricing-card__desc">Ironing only — crisp, crease-free, and ready to wear.</p>
+          <h3 class="pricing-card__name">Steam Press</h3>
+          <p class="pricing-card__desc">Professional steam pressing — crisp, crease-free, and ready to wear.</p>
           <div class="pricing-card__price">
-            <span class="pricing-card__amount">₹15</span>
+            <span class="pricing-card__amount">₹20</span>
             <span class="pricing-card__unit">/ piece</span>
           </div>
           <div class="pricing-card__divider"></div>
           <div class="pricing-card__features">
             <div class="pricing-card__feature">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              Steam & hand press finish
+              Professional steam press finish
             </div>
             <div class="pricing-card__feature">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
@@ -155,10 +152,6 @@
             <div class="pricing-card__feature">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
               Hanger or folded packaging
-            </div>
-            <div class="pricing-card__feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              Standard Delivery: 24 hrs
             </div>
             <div class="pricing-card__feature">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
@@ -173,13 +166,13 @@
       <div class="section-header centered reveal" style="margin-top: var(--space-16);">
         <span class="section-label">Delivery Options</span>
         <h2>Choose your delivery speed</h2>
-        <p>Base prices include standard 48-hour delivery. Need it faster? Express gets your order back in 24 hours.</p>
+        <p>Wash, Dry &amp; Fold and Wash, Fold &amp; Iron include normal 48-hour delivery. Express 24-hour delivery adds ₹5 per piece to these two packages. Confirm turnaround for other services when booking.</p>
       </div>
 
-      <div class="pricing-grid" style="max-width: 800px; margin: 0 auto; grid-template-columns: repeat(2, 1fr);">
+      <div class="pricing-grid pricing-grid--delivery">
         <div class="pricing-card reveal reveal-delay-1">
           <h3 class="pricing-card__name">🚚 Normal Delivery</h3>
-          <p class="pricing-card__desc">Included with standard per-cloth rates.</p>
+          <p class="pricing-card__desc">Included with Wash, Dry &amp; Fold and Wash, Fold &amp; Iron.</p>
           <div class="pricing-card__price">
             <span class="pricing-card__amount">48 hr</span>
             <span class="pricing-card__unit">Turnaround</span>
@@ -204,7 +197,7 @@
         <div class="pricing-card pricing-card--popular reveal reveal-delay-2">
           <span class="pricing-card__badge">Fast Delivery</span>
           <h3 class="pricing-card__name">⚡ Express Delivery</h3>
-          <p class="pricing-card__desc">When you need your clothes in a hurry.</p>
+          <p class="pricing-card__desc">For Wash, Dry &amp; Fold and Wash, Fold &amp; Iron.</p>
           <div class="pricing-card__price">
             <span class="pricing-card__amount">24 hr</span>
             <span class="pricing-card__unit">Turnaround</span>
@@ -229,60 +222,290 @@
     </div>
   </section>
 
+  <!-- SPECIALIZED RATE CARD SECTION -->
+  <section class="section" id="rate-card-menu">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <span class="section-label">Complete Rate Card</span>
+        <h2>All services, one complete rate card</h2>
+        <p>Everyday laundry, per-kg wash press treatments, and per-piece garment care. The calculator below uses these same rates.</p>
+      </div>
+
+      <div class="rate-card">
+        <div class="rate-card__header">
+          <h3>Everyday Laundry (Per Piece)</h3>
+          <span style="font-size: 0.85rem;">Normal delivery rates</span>
+        </div>
+        <div class="rate-card__body">
+          <table class="rate-card__table">
+            <thead><tr><th scope="col" style="text-align: left;">SERVICE TYPE</th><th scope="col" style="text-align: right;">RATE</th></tr></thead>
+            <tbody style="font-size: 0.95rem; color: var(--slate-800);">
+              <tr style="border-bottom: 1px solid var(--slate-100);">
+                <td><strong>Wash, Dry &amp; Fold</strong><br><small style="color: var(--color-text-light);">Washed, dried, and neatly folded</small></td>
+                <td>₹22 / piece</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--slate-100);">
+                <td><strong>Wash, Fold &amp; Iron</strong><br><small style="color: var(--color-text-light);">Washed, dried, steam pressed, and folded</small></td>
+                <td>₹27 / piece</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size: 0.85rem; margin-top: var(--space-3);">Express delivery: +₹5 per piece for these two packages.</p>
+        </div>
+        <div class="rate-card__header">
+          <h3>🧺 Wash Press Services (Per Kg)</h3>
+          <span style="font-size: 0.85rem; background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: var(--radius-full);">Weighed at pickup</span>
+        </div>
+        <div class="rate-card__body">
+          <table class="rate-card__table">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--slate-200); font-weight: 700; color: var(--slate-600); font-size: 0.9rem;">
+                <th style="padding: 10px 0;">SERVICE TYPE</th>
+                <th style="padding: 10px 0; text-align: right;">RATE</th>
+              </tr>
+            </thead>
+            <tbody style="font-size: 0.95rem; color: var(--slate-800);">
+              <tr style="border-bottom: 1px solid var(--slate-100);">
+                <td><strong>Washing Press (Normal)</strong><br><small style="color: var(--color-text-light);">Machine wash + gentle dry + steam press</small></td>
+                <td>₹120 / kg</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--slate-100);">
+                <td><strong>Ozone Wash Press</strong><br><small style="color: var(--color-text-light);">99.9% active sterilization & bacterial removal</small></td>
+                <td>₹150 / kg</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--slate-100);">
+                <td><strong>Silicon Wash Press</strong><br><small style="color: var(--color-text-light);">Ultra-soft fabric finish & wrinkle prevention</small></td>
+                <td>₹160 / kg</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--slate-100);">
+                <td><strong>Fragrance Wash Press</strong><br><small style="color: var(--color-text-light);">Long-lasting floral/oceanic freshness infusion</small></td>
+                <td>₹175 / kg</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--slate-100);">
+                <td><strong>Nano Bubble Deep Wash Press</strong><br><small style="color: var(--color-text-light);">Deep fiber penetration lifting microscopic grime</small></td>
+                <td>₹185 / kg</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--slate-100);">
+                <td><strong>Enzyme / Anti-Bacterial Wash Press</strong><br><small style="color: var(--color-text-light);">Bio-enzyme stain buster & hospital-grade hygiene</small></td>
+                <td>₹200 / kg</td>
+              </tr>
+              <tr style="border-bottom: 2px solid var(--slate-300);">
+                <td><strong>Organic Wash Press</strong><br><small style="color: var(--color-text-light);">100% natural, hypoallergenic plant detergents</small></td>
+                <td>₹225 / kg</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="rate-card__header rate-card__header--dark">
+          <h3>👔 Specialized Care & Finishing (Per Piece)</h3>
+          <span style="font-size: 0.85rem; background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: var(--radius-full);">Individual garment care</span>
+        </div>
+        <div class="rate-card__body">
+          <table class="rate-card__table">
+            <tbody style="font-size: 0.95rem; color: var(--slate-800);">
+              <tr style="border-bottom: 1px solid var(--slate-100);">
+                <td><strong>Dry Cleaning</strong><br><small style="color: var(--color-text-light);">Suits, sherwanis, silks, jackets, delicate wear</small></td>
+                <td>Starts @ ₹150 / piece</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--slate-100);">
+                <td><strong>Steam Press</strong><br><small style="color: var(--color-text-light);">Crease-free professional steam ironing</small></td>
+                <td>₹20 / piece</td>
+              </tr>
+              <tr>
+                <td><strong>Steam Fragrance Press</strong><br><small style="color: var(--color-text-light);">Steam pressed with aromatic linen refresh spray</small></td>
+                <td>₹25 / piece</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="rate-card__footer">
+          <a href="contact.html" class="btn btn--primary btn--md" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+            Book Any Service on WhatsApp →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PRICE CALCULATOR -->
   <section class="section section--alt">
     <div class="container container--narrow">
       <div class="section-header centered reveal">
         <span class="section-label">Price Estimator</span>
         <h2>Calculate your order cost</h2>
-        <p>Select your delivery speed and enter your item count to see your estimate.</p>
+        <p>Choose a delivery speed, then select pieces or kilograms for each service. Wash press quantities increase in steps of 0.5 kg.</p>
       </div>
 
       <div class="calculator reveal" id="priceCalculator">
-        <div class="calculator__row" style="border: none; padding: var(--space-3) var(--space-4); background: var(--blue-50); border-radius: var(--radius-md); margin-bottom: var(--space-4);">
+        <div class="calculator__delivery">
           <div>
             <div class="calculator__item-name" style="font-weight: 600;">🚚 Delivery Mode</div>
-            <div style="font-size: 0.8rem; color: var(--color-text-light);">Normal: 48hr | Express: 24hr (+₹5/pc)</div>
+            <div style="font-size: 0.8rem; color: var(--color-text-light);">Express adds ₹5/piece to Wash, Dry &amp; Fold and Wash, Fold &amp; Iron only. Other service rates stay the same.</div>
           </div>
-          <div style="display: flex; gap: var(--space-2);">
-            <button type="button" class="btn btn--primary btn--sm" id="deliveryNormal" onclick="setDelivery('normal')" style="font-size: 0.8rem;">Normal (48hr)</button>
-            <button type="button" class="btn btn--outline btn--sm" id="deliveryExpress" onclick="setDelivery('express')" style="font-size: 0.8rem;">Express (24hr)</button>
+          <div class="calculator__delivery-buttons">
+            <button type="button" class="btn btn--primary btn--sm" id="deliveryNormal" onclick="setDelivery('normal')">Normal (48hr)</button>
+            <button type="button" class="btn btn--outline btn--sm" id="deliveryExpress" onclick="setDelivery('express')">Express (24hr)</button>
           </div>
         </div>
 
-        <div class="calculator__row" data-price="22" data-express-price="27">
+        <h3 class="calculator__group-title">Everyday Laundry (Per Piece)</h3>
+        <div class="calculator__row" data-service="Wash, Dry &amp; Fold" data-price="22" data-express-price="27" data-unit="piece" data-step="1" data-starting-price="false">
           <div>
-            <div class="calculator__item-name">🫧 Wash, Dry & Fold</div>
+            <div class="calculator__item-name">Wash, Dry &amp; Fold</div>
             <div class="calculator__item-price">₹22 / piece</div>
           </div>
           <div class="calculator__qty">
-            <button type="button" class="calculator__qty-btn" data-action="sub" aria-label="Decrease">−</button>
+            <button type="button" class="calculator__qty-btn" data-action="sub" aria-label="Decrease Wash, Dry &amp; Fold">−</button>
             <span class="calculator__qty-value">0</span>
-            <button type="button" class="calculator__qty-btn" data-action="add" aria-label="Increase">+</button>
+            <span class="calculator__qty-unit">pcs</span>
+            <button type="button" class="calculator__qty-btn" data-action="add" aria-label="Increase Wash, Dry &amp; Fold">+</button>
           </div>
         </div>
 
-        <div class="calculator__row" data-price="27" data-express-price="32">
+        <div class="calculator__row" data-service="Wash, Fold &amp; Iron" data-price="27" data-express-price="32" data-unit="piece" data-step="1" data-starting-price="false">
           <div>
-            <div class="calculator__item-name">👔 Wash, Dry & Iron</div>
+            <div class="calculator__item-name">Wash, Fold &amp; Iron</div>
             <div class="calculator__item-price">₹27 / piece</div>
           </div>
           <div class="calculator__qty">
-            <button type="button" class="calculator__qty-btn" data-action="sub" aria-label="Decrease">−</button>
+            <button type="button" class="calculator__qty-btn" data-action="sub" aria-label="Decrease Wash, Fold &amp; Iron">−</button>
             <span class="calculator__qty-value">0</span>
-            <button type="button" class="calculator__qty-btn" data-action="add" aria-label="Increase">+</button>
+            <span class="calculator__qty-unit">pcs</span>
+            <button type="button" class="calculator__qty-btn" data-action="add" aria-label="Increase Wash, Fold &amp; Iron">+</button>
           </div>
         </div>
 
-        <div class="calculator__row" data-price="15" data-express-price="15">
+        <h3 class="calculator__group-title">Wash Press Services (Per Kg)</h3>
+        <div class="calculator__row" data-service="Washing Press (Normal)" data-price="120" data-express-price="120" data-unit="kg" data-step="0.5" data-starting-price="false">
           <div>
-            <div class="calculator__item-name">✨ Iron & Finish</div>
-            <div class="calculator__item-price">₹15 / piece (Always 24hr)</div>
+            <div class="calculator__item-name">Washing Press (Normal)</div>
+            <div class="calculator__item-price">₹120 / kg</div>
           </div>
           <div class="calculator__qty">
-            <button type="button" class="calculator__qty-btn" data-action="sub" aria-label="Decrease">−</button>
+            <button type="button" class="calculator__qty-btn" data-action="sub" aria-label="Decrease Washing Press (Normal)">−</button>
             <span class="calculator__qty-value">0</span>
-            <button type="button" class="calculator__qty-btn" data-action="add" aria-label="Increase">+</button>
+            <span class="calculator__qty-unit">kg</span>
+            <button type="button" class="calculator__qty-btn" data-action="add" aria-label="Increase Washing Press (Normal)">+</button>
+          </div>
+        </div>
+
+        <div class="calculator__row" data-service="Ozone Wash Press" data-price="150" data-express-price="150" data-unit="kg" data-step="0.5" data-starting-price="false">
+          <div>
+            <div class="calculator__item-name">Ozone Wash Press</div>
+            <div class="calculator__item-price">₹150 / kg</div>
+          </div>
+          <div class="calculator__qty">
+            <button type="button" class="calculator__qty-btn" data-action="sub" aria-label="Decrease Ozone Wash Press">−</button>
+            <span class="calculator__qty-value">0</span>
+            <span class="calculator__qty-unit">kg</span>
+            <button type="button" class="calculator__qty-btn" data-action="add" aria-label="Increase Ozone Wash Press">+</button>
+          </div>
+        </div>
+
+        <div class="calculator__row" data-service="Silicon Wash Press" data-price="160" data-express-price="160" data-unit="kg" data-step="0.5" data-starting-price="false">
+          <div>
+            <div class="calculator__item-name">Silicon Wash Press</div>
+            <div class="calculator__item-price">₹160 / kg</div>
+          </div>
+          <div class="calculator__qty">
+            <button type="button" class="calculator__qty-btn" data-action="sub" aria-label="Decrease Silicon Wash Press">−</button>
+            <span class="calculator__qty-value">0</span>
+            <span class="calculator__qty-unit">kg</span>
+            <button type="button" class="calculator__qty-btn" data-action="add" aria-label="Increase Silicon Wash Press">+</button>
+          </div>
+        </div>
+
+        <div class="calculator__row" data-service="Fragrance Wash Press" data-price="175" data-express-price="175" data-unit="kg" data-step="0.5" data-starting-price="false">
+          <div>
+            <div class="calculator__item-name">Fragrance Wash Press</div>
+            <div class="calculator__item-price">₹175 / kg</div>
+          </div>
+          <div class="calculator__qty">
+            <button type="button" class="calculator__qty-btn" data-action="sub" aria-label="Decrease Fragrance Wash Press">−</button>
+            <span class="calculator__qty-value">0</span>
+            <span class="calculator__qty-unit">kg</span>
+            <button type="button" class="calculator__qty-btn" data-action="add" aria-label="Increase Fragrance Wash Press">+</button>
+          </div>
+        </div>
+
+        <div class="calculator__row" data-service="Nano Bubble Deep Wash Press" data-price="185" data-express-price="185" data-unit="kg" data-step="0.5" data-starting-price="false">
+          <div>
+            <div class="calculator__item-name">Nano Bubble Deep Wash Press</div>
+            <div class="calculator__item-price">₹185 / kg</div>
+          </div>
+          <div class="calculator__qty">
+            <button type="button" class="calculator__qty-btn" data-action="sub" aria-label="Decrease Nano Bubble Deep Wash Press">−</button>
+            <span class="calculator__qty-value">0</span>
+            <span class="calculator__qty-unit">kg</span>
+            <button type="button" class="calculator__qty-btn" data-action="add" aria-label="Increase Nano Bubble Deep Wash Press">+</button>
+          </div>
+        </div>
+
+        <div class="calculator__row" data-service="Enzyme / Anti-Bacterial Wash Press" data-price="200" data-express-price="200" data-unit="kg" data-step="0.5" data-starting-price="false">
+          <div>
+            <div class="calculator__item-name">Enzyme / Anti-Bacterial Wash Press</div>
+            <div class="calculator__item-price">₹200 / kg</div>
+          </div>
+          <div class="calculator__qty">
+            <button type="button" class="calculator__qty-btn" data-action="sub" aria-label="Decrease Enzyme / Anti-Bacterial Wash Press">−</button>
+            <span class="calculator__qty-value">0</span>
+            <span class="calculator__qty-unit">kg</span>
+            <button type="button" class="calculator__qty-btn" data-action="add" aria-label="Increase Enzyme / Anti-Bacterial Wash Press">+</button>
+          </div>
+        </div>
+
+        <div class="calculator__row" data-service="Organic Wash Press" data-price="225" data-express-price="225" data-unit="kg" data-step="0.5" data-starting-price="false">
+          <div>
+            <div class="calculator__item-name">Organic Wash Press</div>
+            <div class="calculator__item-price">₹225 / kg</div>
+          </div>
+          <div class="calculator__qty">
+            <button type="button" class="calculator__qty-btn" data-action="sub" aria-label="Decrease Organic Wash Press">−</button>
+            <span class="calculator__qty-value">0</span>
+            <span class="calculator__qty-unit">kg</span>
+            <button type="button" class="calculator__qty-btn" data-action="add" aria-label="Increase Organic Wash Press">+</button>
+          </div>
+        </div>
+
+        <h3 class="calculator__group-title">Specialized Care &amp; Finishing (Per Piece)</h3>
+        <div class="calculator__row" data-service="Dry Cleaning" data-price="150" data-express-price="150" data-unit="piece" data-step="1" data-starting-price="true">
+          <div>
+            <div class="calculator__item-name">Dry Cleaning</div>
+            <div class="calculator__item-price">Starts @ ₹150 / piece</div>
+          </div>
+          <div class="calculator__qty">
+            <button type="button" class="calculator__qty-btn" data-action="sub" aria-label="Decrease Dry Cleaning">−</button>
+            <span class="calculator__qty-value">0</span>
+            <span class="calculator__qty-unit">pcs</span>
+            <button type="button" class="calculator__qty-btn" data-action="add" aria-label="Increase Dry Cleaning">+</button>
+          </div>
+        </div>
+
+        <div class="calculator__row" data-service="Steam Press" data-price="20" data-express-price="20" data-unit="piece" data-step="1" data-starting-price="false">
+          <div>
+            <div class="calculator__item-name">Steam Press</div>
+            <div class="calculator__item-price">₹20 / piece</div>
+          </div>
+          <div class="calculator__qty">
+            <button type="button" class="calculator__qty-btn" data-action="sub" aria-label="Decrease Steam Press">−</button>
+            <span class="calculator__qty-value">0</span>
+            <span class="calculator__qty-unit">pcs</span>
+            <button type="button" class="calculator__qty-btn" data-action="add" aria-label="Increase Steam Press">+</button>
+          </div>
+        </div>
+
+        <div class="calculator__row" data-service="Steam Fragrance Press" data-price="25" data-express-price="25" data-unit="piece" data-step="1" data-starting-price="false">
+          <div>
+            <div class="calculator__item-name">Steam Fragrance Press</div>
+            <div class="calculator__item-price">₹25 / piece</div>
+          </div>
+          <div class="calculator__qty">
+            <button type="button" class="calculator__qty-btn" data-action="sub" aria-label="Decrease Steam Fragrance Press">−</button>
+            <span class="calculator__qty-value">0</span>
+            <span class="calculator__qty-unit">pcs</span>
+            <button type="button" class="calculator__qty-btn" data-action="add" aria-label="Increase Steam Fragrance Press">+</button>
           </div>
         </div>
 
@@ -290,6 +513,8 @@
           <span class="calculator__total-label">Estimated Total</span>
           <span class="calculator__total-value">₹0</span>
         </div>
+
+        <p style="font-size: 0.85rem; margin-top: var(--space-3);">Dry cleaning starts at the listed price; final charges depend on the garment. Per-kg services are weighed at pickup.</p>
 
         <button type="button" id="calcBookBtn" class="btn btn--primary btn--lg" style="width:100%; margin-top: 1.5rem;">Book This Order</button>
       </div>
@@ -310,11 +535,16 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <div class="footer__top" style="grid-template-columns: 2fr 1fr 1fr;">
+      <div class="footer__top">
         <div class="footer__brand">
-          <a href="index.html" class="navbar__logo"><span class="navbar__logo-icon">🧺</span> WashReady</a>
+          <a href="index.html" class="navbar__logo" style="margin-bottom: 0.75rem;">
+            <img src="image.png" alt="WashReady Logo" class="footer__logo-img">
+          </a>
           <p>Professional laundry services across Chandigarh, Mohali & Panchkula. Doorstep pickup, clean clothes, zero effort.</p>
-          <p style="margin-top: 0.75rem; font-size: 0.9rem; color: #fff;">
+          <p style="margin-top: 0.75rem; font-size: 0.85rem; color: #cbd5e1;">
+            📍 <strong>Store Address:</strong> Shop LG-16, Green Lotus Saksham Arcade, Patiala Road, Zirakpur
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #fff;">
             📱 WhatsApp / Call: <a href="https://wa.me/917355892555" style="color: #25D366; font-weight: 600;">+91 73558 92555</a>
           </p>
         </div>
@@ -322,8 +552,8 @@
           <h4 class="footer__col-title">Services</h4>
           <div class="footer__links">
             <a href="services.html" class="footer__link">Wash, Dry & Fold</a>
-            <a href="services.html" class="footer__link">Wash, Dry & Iron</a>
-            <a href="services.html" class="footer__link">Iron & Finish</a>
+            <a href="services.html" class="footer__link">Wash, Fold & Iron</a>
+            <a href="services.html" class="footer__link">Steam Press</a>
             <a href="pricing.html" class="footer__link">Pricing Plans</a>
           </div>
         </div>

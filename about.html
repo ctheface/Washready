@@ -16,30 +16,27 @@
   <nav class="navbar" id="navbar">
     <div class="navbar__inner">
       <a href="index.html" class="navbar__logo">
-        <span class="navbar__logo-icon">🧺</span>
-        WashReady
+        <img src="image.png" alt="WashReady Logo" class="navbar__logo-img">
       </a>
       <div class="navbar__links">
         <a href="index.html" class="navbar__link">Home</a>
         <a href="services.html" class="navbar__link">Services</a>
         <a href="pricing.html" class="navbar__link">Pricing</a>
         <a href="about.html" class="navbar__link active">About</a>
-        <a href="contact.html" class="navbar__link">Book Pickup</a>
       </div>
       <div class="navbar__actions">
-        <a href="contact.html" class="btn btn--primary navbar__cta" style="display:inline-flex;">Book a Pickup</a>
-        <button class="navbar__toggle" id="navToggle" aria-label="Toggle menu">
+        <a href="contact.html" class="btn btn--primary navbar__cta">Book a Pickup</a>
+        <button class="navbar__toggle" id="navToggle" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
-    <div class="navbar__mobile" id="mobileMenu">
+    <div class="navbar__mobile" id="mobileMenu" aria-hidden="true" inert>
       <div class="navbar__mobile-links">
         <a href="index.html" class="navbar__mobile-link">Home</a>
         <a href="services.html" class="navbar__mobile-link">Services</a>
         <a href="pricing.html" class="navbar__mobile-link">Pricing</a>
         <a href="about.html" class="navbar__mobile-link">About</a>
-        <a href="contact.html" class="navbar__mobile-link">Book Pickup</a>
       </div>
       <a href="contact.html" class="btn btn--primary btn--lg">Book a Pickup</a>
     </div>
@@ -65,7 +62,7 @@
     <div class="container">
       <div class="about-intro reveal">
         <div class="about-intro__image">
-          <div class="service-detail__visual-placeholder service-detail__visual-placeholder--wash" style="height:400px; border-radius: var(--radius-xl);">
+          <div class="service-detail__visual-placeholder service-detail__visual-placeholder--wash about-intro__illustration">
             <span style="font-size: 6rem;">🧺</span>
           </div>
         </div>
@@ -195,7 +192,7 @@
         <p>We believe premium care and environmental responsibility can coexist. Here's how we make that happen.</p>
       </div>
 
-      <div class="why-grid" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="why-grid why-grid--sustainability">
         <div class="why-card reveal reveal-delay-1">
           <div class="why-card__icon">💧</div>
           <h3 class="why-card__title">Water Efficient</h3>
@@ -218,11 +215,16 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <div class="footer__top" style="grid-template-columns: 2fr 1fr 1fr;">
+      <div class="footer__top">
         <div class="footer__brand">
-          <a href="index.html" class="navbar__logo"><span class="navbar__logo-icon">🧺</span> WashReady</a>
+          <a href="index.html" class="navbar__logo" style="margin-bottom: 0.75rem;">
+            <img src="image.png" alt="WashReady Logo" class="footer__logo-img">
+          </a>
           <p>Professional laundry services across Chandigarh, Mohali & Panchkula. Doorstep pickup, clean clothes, zero effort.</p>
-          <p style="margin-top: 0.75rem; font-size: 0.9rem; color: #fff;">
+          <p style="margin-top: 0.75rem; font-size: 0.85rem; color: #cbd5e1;">
+            📍 <strong>Store Address:</strong> Shop LG-16, Green Lotus Saksham Arcade, Patiala Road, Zirakpur
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #fff;">
             📱 WhatsApp / Call: <a href="https://wa.me/917355892555" style="color: #25D366; font-weight: 600;">+91 73558 92555</a>
           </p>
         </div>
@@ -230,8 +232,8 @@
           <h4 class="footer__col-title">Services</h4>
           <div class="footer__links">
             <a href="services.html" class="footer__link">Wash, Dry & Fold</a>
-            <a href="services.html" class="footer__link">Wash, Dry & Iron</a>
-            <a href="services.html" class="footer__link">Iron & Finish</a>
+            <a href="services.html" class="footer__link">Wash, Fold & Iron</a>
+            <a href="services.html" class="footer__link">Steam Press</a>
             <a href="pricing.html" class="footer__link">Pricing Plans</a>
           </div>
         </div>
